@@ -10,7 +10,7 @@ console.log(res);
 // }
 // console.log("val:"+i);
 
-for(let i=0;i<10;i++){
-    console.log(i);
-}
-console.log("val:"+i);
+//for(let i=0;i<10;i++){
+  //  console.log(i);
+//}
+//console.log("val:"+i);
