@@ -23,7 +23,8 @@ if(url==="/"){
          const parsedBody=Buffer.concat(body).toString();
          //console.log(paredBody);
          const message=parsedBody.split("=")[1];
-         fs.writeFileSync('message.txt',message,err =>{
+         //async behaviour of javascript
+         fs.writeFile('message.txt',message,err =>{
             res.statusCode=302;
             res.setHeader('Location','/');
             return res.end();
