@@ -1,0 +1,16 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "description": "Solulab NodeJS Course",
+  "main": "nodeScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node nodeScript.js",
+    "start-server": "node nodeScript.js"
+  },
+  "author": "Jitendra Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
