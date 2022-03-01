@@ -12,7 +12,13 @@ expressEx.use('/add-product',(req,res,next)=>{ //use() allows to add middleware 
     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
-expressEx.use('/product',(req,res,next)=>{
+// expressEx.use('/product',(req,res,next)=>{
+//     console.log(req.body); //get undefined value
+//     res.redirect('/'); //redirect the target path
+// });
+
+//instead of use() method we can use post() method 
+expressEx.post('/product',(req,res,next)=>{
     console.log(req.body); //get undefined value
     res.redirect('/'); //redirect the target path
 });
@@ -22,14 +28,15 @@ expressEx.use('/',(req,res,next)=>{
 });
 
 
-//Output:-(2nd middleware is not execute because the path set to /add-product anly 1st and 2nd will execute.)
-// Its always runs
-// Its a another middleware
-// Its always runs
-// Its a another middleware
+
 
 // const server=http.createServer(expressEx);
 // server.listen(2000);
 
 expressEx.listen(2000);
 
+//Output:-(2nd middleware is not execute because the path set to /add-product anly 1st and 2nd will execute.)
+// Its always runs
+// Its a another middleware
+// Its always runs
+// Its a another middleware
