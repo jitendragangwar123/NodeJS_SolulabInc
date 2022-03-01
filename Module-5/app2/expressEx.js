@@ -1,29 +1,23 @@
 //install nodemon by using :- npm install nodemon --save-dev
 //const http=require("http");
 const express=require("express");
+const bodyParser = require("body-parser");
+
 const expressEx=express();
 
-//This approach allow us to route our request in different middleware
-//1st middleware
-expressEx.use('/',(req,res,next)=>{ //use() allows to add middleware services
-    console.log("Its always runs");
-    next(); //Allows the request to continue to the next middleware in line
-});
+//by default request can not be parsed
+expressEx.use(bodyParser.urlencoded({extended:true}));
 
-//2nd middleware 
 expressEx.use('/add-product',(req,res,next)=>{ //use() allows to add middleware services
-    console.log("Its a middleware");
     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
 expressEx.use('/product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/');
+    console.log(req.body); //get undefined value
+    res.redirect('/'); //redirect the target path
 });
 
-//3rd middleware
 expressEx.use('/',(req,res,next)=>{
-    console.log("Its a another middleware");
     res.send('<h1>Hello from ExpressJS!</h1>');//send the resonse to the server
 });
 
