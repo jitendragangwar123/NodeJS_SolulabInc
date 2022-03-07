@@ -10,6 +10,9 @@ const shopRoutes=require("./routes/shop");
 
 //by default request can not be parsed
 expressEx.use(bodyParser.urlencoded({extended:true}));
+//serving files statically
+expressEx.use(express.static(path.join(__dirname,'public')));
+
 expressEx.use('/admin',adminRoutes);
 expressEx.use(shopRoutes);
 
