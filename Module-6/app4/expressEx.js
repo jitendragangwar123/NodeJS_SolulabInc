@@ -2,16 +2,14 @@
 const path=require("path");
 const express=require("express");
 const bodyParser = require("body-parser");
-const expressHbs=require('express-handlebars');
+
 const expressEx=express();
 
-expressEx.engine('hbs',expressHbs());
-expressEx.set('view engine','hbs');
+expressEx.set('view engine','ejs');
 expressEx.set('views','views');
 
 const adminData=require("./routes/admin");
 const shopRoutes=require("./routes/shop");
-const { appendFile } = require("fs");
 
 //by default request can not be parsed
 expressEx.use(bodyParser.urlencoded({extended:true}));
@@ -23,7 +21,7 @@ expressEx.use(shopRoutes);
 
 //to handle the error page 
 expressEx.use((req,res,next)=>{
-     res.status(404).render('404',{pagetitle:'Page Not Found!'});
+     res.status(404).render('404',{pageTitle:'Page Not Found!'});
 });
 
 // const server=http.createServer(expressEx);
